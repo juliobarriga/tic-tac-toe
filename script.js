@@ -1,12 +1,11 @@
 let spaces = document.querySelectorAll('.space');
 let turn = 'X';
-
-spaces.forEach((element) => {
-    element.innerHTML = "";
-    scores = {
+let scores = {
         X:[],
         O:[]
     }
+spaces.forEach((element) => {
+    element.innerHTML = "";
     let winner = "";
     const checkWin = () =>{
         // console.log(scores[turn]);
@@ -64,6 +63,9 @@ const resetBtn = document.querySelector('.reset');
 const reset = () => {
     turn = 'X';
     spaces.forEach(element => element.innerHTML = "");
+    winner = "";
+    scores['X'] = [];
+    scores['O'] = [];
 }
 resetBtn.addEventListener('click', reset)
 
