@@ -21,6 +21,8 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
+    font-size: 80px;
+    text-align: center;
 }
 .top {
     border-top-style: none;
@@ -35,10 +37,6 @@ h1 {
     border-bottom-style: none;
 }
 
-div.space p {
-    font-size: 80px;
-    text-align: center;
-}
 h2 {
     text-align: center;
 }
