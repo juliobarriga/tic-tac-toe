@@ -7,39 +7,90 @@ let scores = {
 spaces.forEach((element) => {
     element.innerHTML = "";
     let winner = "";
+    let scoreXElement = document.querySelector('div.score-X p.player-score');
+    let scoreOElement = document.querySelector('div.score-O p.player-score');
+
     const checkWin = () =>{
         // console.log(scores[turn]);
         if (['a','d','g'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['b','e','h'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['c','f','i'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['a','b','c'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['d','e','f'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['g','h','i'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['a','e','i'].every(value => scores[turn].includes(value)) == true) {
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         } else if (['g','e','c'].every(value => scores[turn].includes(value)) == true){
             winner = turn;
             console.log(`The winner is ${winner}`);
+            if (winner == 'X') {
+                scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+                console.log(scoreXElement.innerHTML)
+            } else if (winner == 'O') {
+                scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+            } 
             return winner;
         }
     }
