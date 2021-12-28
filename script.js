@@ -4,6 +4,14 @@ let scores = {
         X:[],
         O:[]
     }
+let xWins = () => {
+    document.querySelector('.score-O').style.backgroundColor = 'red';
+    document.querySelector('.score-X').style.backgroundColor = 'green';
+}
+let oWins = () => {
+    document.querySelector('.score-O').style.backgroundColor = 'green';
+    document.querySelector('.score-X').style.backgroundColor = 'red';
+}
 spaces.forEach((element) => {
     element.innerHTML = "";
     let winner = "";
@@ -18,8 +26,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['b','e','h'].every(value => scores[turn].includes(value)) == true) {
@@ -28,8 +38,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['c','f','i'].every(value => scores[turn].includes(value)) == true) {
@@ -38,8 +50,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['a','b','c'].every(value => scores[turn].includes(value)) == true) {
@@ -48,8 +62,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['d','e','f'].every(value => scores[turn].includes(value)) == true) {
@@ -58,8 +74,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['g','h','i'].every(value => scores[turn].includes(value)) == true) {
@@ -68,8 +86,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['a','e','i'].every(value => scores[turn].includes(value)) == true) {
@@ -78,8 +98,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         } else if (['g','e','c'].every(value => scores[turn].includes(value)) == true){
@@ -88,8 +110,10 @@ spaces.forEach((element) => {
             if (winner == 'X') {
                 scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
                 console.log(scoreXElement.innerHTML)
+                xWins();
             } else if (winner == 'O') {
                 scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+                oWins();
             } 
             return winner;
         }
@@ -101,17 +125,29 @@ spaces.forEach((element) => {
             element.innerHTML = 'X';
             if (scores[turn].length >= 3){checkWin()};
             turn = 'O';
+            if (winner.length == 0){
+                document.querySelector('.score-X').style.backgroundColor = 'white';
+                document.querySelector('.score-O').style.backgroundColor = 'yellow';
+            }
+            
         } else if (turn === 'O'){
             scores[turn].push(element.id);
             element.innerHTML = 'O';
             if (scores[turn].length >= 3){checkWin()};
             turn = 'X'
+            if (winner.length == 0){
+                document.querySelector('.score-O').style.backgroundColor = 'white';
+                document.querySelector('.score-X').style.backgroundColor = 'yellow';
+            }
+            
         }
     }
 });
 });
 const resetGameBtn = document.querySelector('.reset-game');
 const resetGame = () => {
+    document.querySelector('.score-O').style.backgroundColor = 'white';
+    document.querySelector('.score-X').style.backgroundColor = 'yellow';
     turn = 'X';
     spaces.forEach(element => element.innerHTML = "");
     winner = "";

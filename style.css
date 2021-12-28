@@ -50,10 +50,10 @@ h2 {
 }
 
 .score-X {
-    background-color: red;
+    background-color: yellow;
 }
 .score-O {
-    background-color: green;
+    background-color: white;
 } 
 .score {
     width: 100px;
