@@ -72,7 +72,17 @@ h2 {
     width: 50px;
     text-align: center;
 }
-button.reset {
-    display: block;
-    margin: 5% auto;
+div.reset-buttons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    column-gap: 20px
+}
+button.reset-game {
+    margin: 5% 2%;
+}
+button.reset-score {
+    margin: 5% 2%;
 }

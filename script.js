@@ -110,7 +110,7 @@ spaces.forEach((element) => {
     }
 });
 });
-const resetBtn = document.querySelector('.reset');
+const resetGameBtn = document.querySelector('.reset-game');
 const reset = () => {
     turn = 'X';
     spaces.forEach(element => element.innerHTML = "");
@@ -118,7 +118,7 @@ const reset = () => {
     scores['X'] = [];
     scores['O'] = [];
 }
-resetBtn.addEventListener('click', reset)
+resetGameBtn.addEventListener('click', reset)
 
 
 // console.log(['a','d','g'].every(value => scores[turn].includes(value)));
