@@ -111,14 +111,22 @@ spaces.forEach((element) => {
 });
 });
 const resetGameBtn = document.querySelector('.reset-game');
-const reset = () => {
+const resetGame = () => {
     turn = 'X';
     spaces.forEach(element => element.innerHTML = "");
     winner = "";
     scores['X'] = [];
     scores['O'] = [];
 }
-resetGameBtn.addEventListener('click', reset)
+resetGameBtn.addEventListener('click', resetGame)
+const resetScoresBtn = document.querySelector('.reset-score');
+const resetScores = () => {
+    let scoreXElement = document.querySelector('div.score-X p.player-score');
+    let scoreOElement = document.querySelector('div.score-O p.player-score');
+    scoreXElement.innerHTML = 0;
+    scoreOElement.innerHTML = 0;
+}
+resetScoresBtn.addEventListener('click', resetScores)
 
 
 // console.log(['a','d','g'].every(value => scores[turn].includes(value)));
