@@ -11,6 +11,7 @@ const xWins = () => {
     document.querySelector("h2").innerHTML = "X Wins!"
     document.querySelector('.score-O').style.backgroundColor = 'red';
     document.querySelector('.score-X').style.backgroundColor = 'green';
+    winSound.play();
 }
 const oWins = () => {
     const scoreOElement = document.querySelector('div.score-O p.player-score');
@@ -18,12 +19,17 @@ const oWins = () => {
     document.querySelector("h2").innerHTML = "O Wins!"
     document.querySelector('.score-O').style.backgroundColor = 'green';
     document.querySelector('.score-X').style.backgroundColor = 'red';
+    winSound.play();
 }
 const tieDraw = () => {
     document.querySelector("h2").innerHTML = "It's a draw!"
     document.querySelector('.score-O').style.backgroundColor = 'orange';
     document.querySelector('.score-X').style.backgroundColor = 'orange';
+    tieSound.play();
 }
+const winSound = new Audio("./sounds/win.mp3");
+const clickSound = new Audio("./sounds/click.mp3");
+const tieSound = new Audio("./sounds/tie.mp3");
 const checkWin = () =>{
     const winningConditions = [
         ['a','d','g'],
@@ -53,6 +59,7 @@ spaces.forEach((element) => {
     element.innerHTML = "";
     element.addEventListener('click', ()=>{
         if (element.innerHTML.length == 0 && winner.length == 0){
+            clickSound.play();
             if (turn === 'X'){
                 scores[turn].push(element.id);
                 element.innerHTML = 'X';
