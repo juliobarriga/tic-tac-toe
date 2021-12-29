@@ -39,9 +39,12 @@ const checkWin = () =>{
         if (winningConditions[i].every(value => scores[turn].includes(value))){
             winner = turn;
             winner == 'X' ? xWins(): winner == 'O' ? oWins(): null;
-            document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
-            document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
-            document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
+            document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green'
+            setTimeout(() => {document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green'}, 400);
+            setTimeout(() => {document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green'}, 800);
+            // document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
+            // document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
+            // document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
             break;
         }
     }
