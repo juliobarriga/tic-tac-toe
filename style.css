@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;900&display=swap');
 
 body {
+    margin: 0;
     background-color: white;
     font-family: 'Nunito', sans-serif;}
 h1 {
@@ -112,4 +113,15 @@ button.reset-score {
     margin: 5% 2%;
     background-color: white;
     border-radius: 5px;
+}
+footer {
+    margin: 0px;
+    padding: 0px;
+    min-width: 100%;
+    max-width: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
