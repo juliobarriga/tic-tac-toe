@@ -5,17 +5,24 @@ let scores = {
         X:[],
         O:[]
     }
-let xWins = () => {
-    let scoreXElement = document.querySelector('div.score-X p.player-score');
+const xWins = () => {
+    const scoreXElement = document.querySelector('div.score-X p.player-score');
     scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
+    document.querySelector("h2").innerHTML = "X Wins!"
     document.querySelector('.score-O').style.backgroundColor = 'red';
     document.querySelector('.score-X').style.backgroundColor = 'green';
 }
-let oWins = () => {
-    let scoreOElement = document.querySelector('div.score-O p.player-score');
+const oWins = () => {
+    const scoreOElement = document.querySelector('div.score-O p.player-score');
     scoreOElement.innerHTML = parseInt(scoreOElement.innerHTML) + 1;
+    document.querySelector("h2").innerHTML = "O Wins!"
     document.querySelector('.score-O').style.backgroundColor = 'green';
     document.querySelector('.score-X').style.backgroundColor = 'red';
+}
+const tieDraw = () => {
+    document.querySelector("h2").innerHTML = "It's a draw!"
+    document.querySelector('.score-O').style.backgroundColor = 'orange';
+    document.querySelector('.score-X').style.backgroundColor = 'orange';
 }
 const checkWin = () =>{
     const winningConditions = [
@@ -35,6 +42,7 @@ const checkWin = () =>{
             document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
             document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
             document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
+            break;
         }
     }
 }
@@ -48,21 +56,25 @@ spaces.forEach((element) => {
                 if (scores[turn].length >= 3){checkWin()};
                 turn = 'O';
                 if (winner.length == 0){
+                    document.querySelector("h2").innerHTML = "Turn -> O"
                     document.querySelector('.score-X').style.backgroundColor = 'white';
                     document.querySelector('.score-O').style.backgroundColor = 'yellow';
                 }
-                
             } else if (turn === 'O'){
                 scores[turn].push(element.id);
                 element.innerHTML = 'O';
                 if (scores[turn].length >= 3){checkWin()};
                 turn = 'X'
                 if (winner.length == 0){
+                    document.querySelector("h2").innerHTML = "Turn -> X"
                     document.querySelector('.score-O').style.backgroundColor = 'white';
                     document.querySelector('.score-X').style.backgroundColor = 'yellow';
                 }
                 
             }
+        }
+        if (winner.length == 0 && scores['X'].length == 5 && document.querySelector("h2").innerHTML !== "It's a draw!") {
+            tieDraw();
         }
 });
 });
@@ -72,6 +84,7 @@ const resetGame = () => {
     document.querySelectorAll('.space').forEach(space => space.style.backgroundColor = 'white');    //Makes every space of the board back to white color.
     document.querySelector('.score-O').style.backgroundColor = 'white';                             //Clears backgorund color of the O div that indicates the turn back to white.
     document.querySelector('.score-X').style.backgroundColor = 'yellow';                            //Sets the background color of the X div that indicates the first turn back to yellow.
+    document.querySelector("h2").innerHTML = "Turn -> X"
     turn = 'X';                                                                                     //Restarts the first turn back to the X marker.
     spaces.forEach(element => element.innerHTML = "");                                              //Clears the markers on the board.
     winner = "";                                                                                    //Clears winner variable.

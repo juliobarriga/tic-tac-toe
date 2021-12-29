@@ -1,9 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@600;900&display=swap');
+
 body {
     background-color: white;
-}
+    font-family: 'Nunito', sans-serif;}
 h1 {
     text-align: center;
-    font-size:40px
+    font-size:50px
 }
 .board {
     margin: 0 auto;
@@ -21,7 +23,7 @@ h1 {
     display: flex;
     justify-content: center;
     align-items: center;
-    font-size: 80px;
+    font-size: 110px;
     text-align: center;
 }
 .top {
@@ -36,7 +38,18 @@ h1 {
 .bottom {
     border-bottom-style: none;
 }
-
+div#a{
+    border-radius: 15% 0 0 0;;
+}
+div#c{
+    border-radius: 0 15% 0 0;;
+}
+div#g{
+    border-radius: 0 0 0 15%;;
+}
+div#i{
+    border-radius: 0 0 15% 0;;
+}
 h2 {
     text-align: center;
 }
@@ -51,9 +64,15 @@ h2 {
 
 .score-X {
     background-color: yellow;
+    border-radius: 50% 0 0 50%;
+    border-style: solid;
+    border-right-style: none;
 }
 .score-O {
     background-color: white;
+    border-radius: 0 50% 50% 0;
+    border-style: solid;
+    border-left-style: none;
 } 
 .score {
     width: 100px;
@@ -65,12 +84,16 @@ h2 {
     grid-template-rows: repeat(2, 1fr);
 }
 .player {
+    margin: 10px auto 10px;
     width: 50px;
     text-align: center;
+    font-size: 30px;
 }
 .player-score {
+    margin: 10px auto 10px;
     width: 50px;
     text-align: center;
+    font-size: 30px;
 }
 div.reset-buttons {
     display: flex;
@@ -82,7 +105,11 @@ div.reset-buttons {
 }
 button.reset-game {
     margin: 5% 2%;
+    background-color: white;
+    border-radius: 5px;
 }
 button.reset-score {
     margin: 5% 2%;
+    background-color: white;
+    border-radius: 5px;
 }
