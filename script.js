@@ -5,25 +5,25 @@ let scores = {
         X:[],
         O:[]
     }
-const winningConditions = [
-    ['a','d','g'],
-    ['b','e','h'],
-    ['c','f','i'],
-    ['a','b','c'],
-    ['d','e','f'],
-    ['g','h','i'],
-    ['a','e','i'],
-    ['g','e','c']
-]
-for (let i = 0; i < winningConditions.length; i++){
-    if (winningConditions[i].every(value => scores[turn].includes(value))){
-        winner = turn;
-        winner == 'X' ? xWins():oWins;
-        document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
-        document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
-        document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
-    }
-}
+// const winningConditions = [
+//     ['a','d','g'],
+//     ['b','e','h'],
+//     ['c','f','i'],
+//     ['a','b','c'],
+//     ['d','e','f'],
+//     ['g','h','i'],
+//     ['a','e','i'],
+//     ['g','e','c']
+// ]
+// for (let i = 0; i < winningConditions.length; i++){
+//     if (winningConditions[i].every(value => scores[turn].includes(value))){
+//         winner = turn;
+//         winner == 'X' ? xWins():oWins;
+//         document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
+//         document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
+//         document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
+//     }
+// }
 let xWins = () => {
     let scoreXElement = document.querySelector('div.score-X p.player-score');
     scoreXElement.innerHTML = parseInt(scoreXElement.innerHTML) + 1;
@@ -169,11 +169,20 @@ const checkWin = () =>{
     //     } 
     //     return winner;
     //// }
-    
+    const winningConditions = [
+        ['a','d','g'],
+        ['b','e','h'],
+        ['c','f','i'],
+        ['a','b','c'],
+        ['d','e','f'],
+        ['g','h','i'],
+        ['a','e','i'],
+        ['g','e','c']
+    ]
     for (let i = 0; i < winningConditions.length; i++){
         if (winningConditions[i].every(value => scores[turn].includes(value))){
             winner = turn;
-            winner == 'X' ? xWins():oWins;
+            winner == 'X' ? xWins(): winner == 'O' ? oWins(): null;
             document.querySelector(`#${winningConditions[i][0]}`).style.backgroundColor = 'green';
             document.querySelector(`#${winningConditions[i][1]}`).style.backgroundColor = 'green';
             document.querySelector(`#${winningConditions[i][2]}`).style.backgroundColor = 'green';
@@ -186,7 +195,6 @@ spaces.forEach((element) => {
         if (element.innerHTML.length == 0 && winner.length == 0){
             if (turn === 'X'){
                 scores[turn].push(element.id);
-                console.log(scores);
                 element.innerHTML = 'X';
                 if (scores[turn].length >= 3){checkWin()};
                 turn = 'O';
@@ -197,7 +205,6 @@ spaces.forEach((element) => {
                 
             } else if (turn === 'O'){
                 scores[turn].push(element.id);
-                console.log(scores);
                 element.innerHTML = 'O';
                 if (scores[turn].length >= 3){checkWin()};
                 turn = 'X'
