@@ -4,7 +4,8 @@ body {
     margin: 0;
     background-color: white;
     font-family: 'Nunito', sans-serif;}
-h1 {
+header {
+    font-weight: bold;
     text-align: center;
     font-size:50px
 }
@@ -115,6 +116,9 @@ button.reset-score {
     border-radius: 5px;
 }
 footer {
+    position: absolute;
+    bottom: 0;
+    height: 60px;
     margin: 0px;
     padding: 0px;
     min-width: 100%;
